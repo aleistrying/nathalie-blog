@@ -90,7 +90,7 @@ export default function Post(props) {
       </div>
 
       <Container>
-        <article className="mx-auto max-w-screen-md ">
+        <article className="mx-auto max-w-screen-md">
           <div className="prose mx-auto my-3 dark:prose-invert prose-a:text-blue-600">
             {post.body && <PortableText value={post.body} />}
           </div>
@@ -98,7 +98,7 @@ export default function Post(props) {
             <Link
               href="/"
               className="bg-brand-secondary/20 rounded-full px-5 py-2 text-sm text-blue-600 dark:text-blue-500 ">
-              ← View all posts
+              ← Ver todos los posts
             </Link>
           </div>
           {post.author && <AuthorCard author={post.author} />}

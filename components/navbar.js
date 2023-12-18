@@ -13,34 +13,49 @@ import { myLoader } from "@/utils/all";
 export default function Navbar(props) {
   const leftmenu = [
     {
-      label: "Home",
+      label: "Inicio",
       href: "/"
     },
     {
-      label: "About",
+      label: "Sobre mí",
       href: "/about"
     },
     {
-      label: "Contact",
-      href: "/contact"
+      label: "Rotación",
+      href: "/rotation"
+    },
+    {
+      label: "Portafolio",
+      href: "/portafolio"
     }
+
+    // Trabajos
+    // Resúmenes
+    // Certificados / Talleres
+    // Multimedia
   ];
 
   const rightmenu = [
+    // {
+    //   label: "Archive",
+    //   href: "/archive"
+    // },
     {
-      label: "Archive",
-      href: "/archive"
+      label: "Fotos y Videos",
+      href: "/multimedia"
+    },
+    // {
+    //   label: "Mis profesores",
+    //   href: "/profesores"
+    // },
+    {
+      label: "Hospital",
+      href: "/hospital"
     },
     {
-      label: "Pro Version",
-      href: "https://stablo-pro.web3templates.com/",
-      external: true,
-      badge: "new"
-    },
-    {
-      label: "Download",
-      href: "https://web3templates.com/templates/stablo-minimal-blog-website-template",
-      external: true
+      label: "Login",
+      href: "/studio"
+      // badge: "new"
     }
   ];
 
@@ -80,13 +95,14 @@ export default function Navbar(props) {
                     {props.logo ? (
                       <Image
                         {...urlForImage(props.logo)}
-                        alt="Logo"
+                        alt={props?.logo?.alt || "Logo"}
                         priority={true}
+                        className="rounded-full"
                         sizes="(max-width: 640px) 100vw, 200px"
                       />
                     ) : (
                       <span className="block text-center">
-                        Stablo
+                        Nath logo
                       </span>
                     )}
                   </Link>
@@ -96,11 +112,12 @@ export default function Navbar(props) {
                         {...urlForImage(props.logoalt)}
                         alt="Logo"
                         priority={true}
+                        className="rounded-full"
                         sizes="(max-width: 640px) 100vw, 200px"
                       />
                     ) : (
                       <span className="block text-center">
-                        Stablo
+                        Nath logo alt
                       </span>
                     )}
                   </Link>

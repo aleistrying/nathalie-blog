@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import Container from "@/components/container";
-import Archive from "./archive";
+import Archive from "./trabajos";
 import Loading from "@/components/loading";
 
 export const dynamic = "force-dynamic";
@@ -12,11 +12,11 @@ export default async function ArchivePage({ searchParams }) {
     <>
       <Container className="relative">
         <h1 className="text-center text-3xl font-semibold tracking-tight dark:text-white lg:text-4xl lg:leading-snug">
-          Archivos del Blog
+          Archive
         </h1>
         <div className="text-center">
           <p className="mt-2 text-lg">
-            Mira todos los posts que hemos publicado hasta ahora.
+            See all posts we have ever written.
           </p>
         </div>
         <Suspense

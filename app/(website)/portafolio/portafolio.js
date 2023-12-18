@@ -3,7 +3,7 @@ import Pagination from "@/components/blog/pagination";
 
 import { getPaginatedPosts } from "@/lib/sanity/client";
 
-export default async function Post({ searchParams }) {
+export default async function Portafolio({ searchParams }) {
   // Fetch the current page from the query parameters, defaulting to 1 if it doesn't exist
   const page = searchParams.page;
   const pageIndex = parseInt(page, 10) || 1;
@@ -28,7 +28,7 @@ export default async function Post({ searchParams }) {
       {posts && posts?.length === 0 && (
         <div className="flex h-40 items-center justify-center">
           <span className="text-lg text-gray-500">
-            Fin de los resultados!
+            Fin de los resultados
           </span>
         </div>
       )}

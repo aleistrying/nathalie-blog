@@ -53,7 +53,12 @@ export default function PostList({
                 })}
                 alt={post.mainImage.alt || "Thumbnail"}
                 priority={preloadImage ? true : false}
-                className="object-cover transition-all"
+                className={cx(
+                  "object-cover transition-all ",
+                  post.mainImage?.NSFW
+                    ? "blur-lg filter duration-1000 ease-in-out hover:blur-none"
+                    : ""
+                )}
                 fill
                 sizes="(max-width: 768px) 30vw, 33vw"
               />
@@ -119,7 +124,7 @@ export default function PostList({
                   <div className="relative h-5 w-5 flex-shrink-0">
                     {post?.author?.image && (
                       <Image
-                        src={AuthorimageProps.src}
+                        src={AuthorimageProps?.src ?? ""}
                         alt={post?.author?.name}
                         className="rounded-full object-cover"
                         fill

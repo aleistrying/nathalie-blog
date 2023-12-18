@@ -1,5 +1,6 @@
 import { apiVersion, dataset, projectId, useCdn } from "./config";
 import {
+  homeQuery,
   postquery,
   limitquery,
   paginatedquery,
@@ -13,7 +14,8 @@ import {
   catpathquery,
   catquery,
   getAll,
-  searchquery
+  searchquery,
+  allprofessorsquery
 } from "./groq";
 import { createClient } from "next-sanity";
 
@@ -54,7 +56,20 @@ export async function getAllPosts() {
 
 export async function getSettings() {
   if (client) {
-    return (await client.fetch(configQuery)) || [];
+    return (await client.fetch(configQuery))?.[0] || [];
+  }
+  return [];
+}
+export async function getProfessors() {
+  if (client) {
+    return (await client.fetch(allprofessorsquery)) || [];
+  }
+  return [];
+}
+
+export async function getHome() {
+  if (client) {
+    return (await client.fetch(homeQuery)) || [];
   }
   return [];
 }
@@ -124,6 +139,21 @@ export async function getPaginatedPosts({ limit, pageIndex = 0 }) {
   if (client) {
     return (
       (await client.fetch(paginatedquery, {
+        pageIndex: pageIndex,
+        limit: limit
+      })) || []
+    );
+  }
+  return [];
+}
+
+export async function getPaginatedMultimedia({
+  limit,
+  pageIndex = 0
+}) {
+  if (client) {
+    return (
+      (await client.fetch(paginatedmultimediaquery, {
         pageIndex: pageIndex,
         limit: limit
       })) || []

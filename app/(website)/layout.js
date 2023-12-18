@@ -12,14 +12,48 @@ async function sharedMetaData(params) {
     title: {
       default:
         settings?.title ||
-        "Stablo - Blog Template for Next.js & Sanity CMS",
-      template: "%s | Stablo"
+        "Nathalie - El Blog de rotación clínica de cirugía",
+      template: "%s | Nathalie"
     },
-    description:
-      settings?.description ||
-      "Stablo - popular open-source next.js and sanity blog template",
-    keywords: ["Next.js", "Sanity", "Tailwind CSS"],
-    authors: [{ name: "Surjith" }],
+    description: settings?.description || "",
+    keywords: [
+      "Nathalie Díaz",
+      "Universidad Panamá",
+      "Rotación Clínica",
+      "Cirugía",
+      "Complejo Hospitalario",
+      "Hospital Arnulfo Arias Madrid",
+      "Aprendizaje Cirugía",
+      "Procedimientos Quirúrgicos",
+      "Experiencia Médica",
+      "Talento Quirúrgico",
+      "Precisión Cirugía",
+      "Inspiración Médica",
+      "Desafíos Cirugía",
+      "Amor Cirugía",
+      "Aventura Médica",
+      "Historias Médicas",
+      "Estudiante Medicina",
+      "Cirujanos",
+      "Sector Salud",
+      "NathalieDiaz",
+      "EstudianteMedicina",
+      "UniversidadPanama",
+      "RotacionClinica",
+      "Cirugia",
+      "HospitalMetropolitano",
+      "AprendizajeCirugia",
+      "ProcedimientosQuirurgicos",
+      "ExperienciaMedica",
+      "TalentoQuirurgico",
+      "PrecisionCirugia",
+      "InspiracionMedica",
+      "DesafiosCirugia",
+      "PasiónCirugía",
+      "AventuraMedica",
+      "HistoriasMedicas"
+    ],
+    authors: [{ name: "Nathalie Díaz" }],
     canonical: settings?.url,
     openGraph: {
       images: [
@@ -33,7 +67,7 @@ async function sharedMetaData(params) {
       ]
     },
     twitter: {
-      title: settings?.title || "Stablo Template",
+      title: settings?.title || "",
       card: "summary_large_image"
     },
     robots: {
