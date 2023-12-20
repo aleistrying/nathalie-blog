@@ -25,7 +25,7 @@ export default async function Bitacora({ searchParams }) {
   const isFirstPage = pageIndex < 2;
   const isLastPage = bitacoras.length < POSTS_PER_PAGE;
 
-  console.log(bitacoras);
+  // console.log(bitacoras);
   return (
     <>
       {bitacoras && bitacoras?.length === 0 && (

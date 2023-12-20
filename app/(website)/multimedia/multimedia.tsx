@@ -69,7 +69,7 @@ export default async function Multimedia({ searchParams }) {
             const videoId = videoUrl.pathname?.includes("/short")
               ? videoUrl.pathname.split("/").pop()?.split("?")[0]
               : videoUrl.searchParams.get("v");
-            console.log(videoUrl, videoId);
+            // console.log(videoUrl, videoId);
             const videoThumbnail = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 
             return (

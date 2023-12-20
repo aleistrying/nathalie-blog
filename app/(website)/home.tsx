@@ -3,7 +3,7 @@ import Container from "@/components/container";
 import PostList from "@/components/postlist";
 
 export default function Post({ posts }) {
-  console.log(posts);
+  // console.log(posts);
   const featured = posts.filter(post => post.featured);
   const notFeatured = posts.filter(post => !post.featured);
   return (
