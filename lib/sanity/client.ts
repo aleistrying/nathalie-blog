@@ -2,6 +2,7 @@ import { apiVersion, dataset, projectId, useCdn } from "./config";
 import {
   homeQuery,
   postquery,
+  bitacoraquery,
   limitquery,
   paginatedquery,
   configQuery,
@@ -15,7 +16,8 @@ import {
   catquery,
   getAll,
   searchquery,
-  allprofessorsquery
+  allprofessorsquery,
+  paginatedmultimediaquery
 } from "./groq";
 import { createClient } from "next-sanity";
 
@@ -46,8 +48,60 @@ export const fetcher = async ([query, params]) => {
     }
   }
 })();
-
-export async function getAllPosts() {
+// export async function getAllBitacoras(): Promise<
+//   {
+//     _id: string;
+//     _createdAt: string;
+//     publishedAt: string;
+//     pdfs: {
+//       _key: string;
+//       _type: string;
+//       name: string;
+//       pdf: {
+//         asset: {
+//           _id: string;
+//           url: string;
+//         };
+//       };
+//     }[];
+//   }[]
+// > {
+//   if (client) {
+//     return (await client.fetch(bitacoraquery)) || [];
+//   }
+//   return [];
+// }
+export async function getAllPosts(): Promise<
+  {
+    _id: string;
+    _createdAt: string;
+    publishedAt: string;
+    mainImage: {
+      blurDataURL: string;
+      ImageColor: string;
+      [key: string]: any;
+    };
+    featured: boolean;
+    excerpt: string;
+    slug: string;
+    title: string;
+    author: {
+      _id: string;
+      image: {
+        blurDataURL: string;
+        ImageColor: string;
+        [key: string]: any;
+      };
+      slug: string;
+      nombre: string;
+    };
+    categories: {
+      _id: string;
+      title: string;
+      slug: string;
+    }[];
+  }[]
+> {
   if (client) {
     return (await client.fetch(postquery)) || [];
   }
@@ -135,6 +189,20 @@ export async function getTopCategories() {
   return [];
 }
 
+export async function getPaginatedBitacoras({
+  limit,
+  pageIndex = 0
+}) {
+  if (client) {
+    return (
+      (await client.fetch(bitacoraquery, {
+        pageIndex: pageIndex,
+        limit: limit
+      })) || []
+    );
+  }
+  return [];
+}
 export async function getPaginatedPosts({ limit, pageIndex = 0 }) {
   if (client) {
     return (
@@ -150,7 +218,17 @@ export async function getPaginatedPosts({ limit, pageIndex = 0 }) {
 export async function getPaginatedMultimedia({
   limit,
   pageIndex = 0
-}) {
+}): Promise<
+  {
+    image: any;
+    NSFW: boolean;
+    title: string;
+    excerpt: string;
+    videoUrl: string;
+    categories: any;
+    createdAt: string;
+  }[]
+> {
   if (client) {
     return (
       (await client.fetch(paginatedmultimediaquery, {

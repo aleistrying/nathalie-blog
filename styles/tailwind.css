@@ -7,3 +7,11 @@
 /*! purgecss end ignore */
 
 /*Custom Styles Here*/
+
+.special-bg {
+    background-image: url('/img/background-v3.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: blur(30px);
+}

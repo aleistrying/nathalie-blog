@@ -19,16 +19,11 @@ export default function Navbar(props) {
     {
       label: "Sobre mí",
       href: "/about"
-    },
-    {
-      label: "Rotación",
-      href: "/rotation"
-    },
-    {
-      label: "Portafolio",
-      href: "/portafolio"
     }
-
+    // {
+    //   label: "Rotación",
+    //   href: "/rotation"
+    // },
     // Trabajos
     // Resúmenes
     // Certificados / Talleres
@@ -41,6 +36,11 @@ export default function Navbar(props) {
     //   href: "/archive"
     // },
     {
+      label: "Bitácora",
+      href: "/bitacora"
+    },
+
+    {
       label: "Fotos y Videos",
       href: "/multimedia"
     },
@@ -48,10 +48,10 @@ export default function Navbar(props) {
     //   label: "Mis profesores",
     //   href: "/profesores"
     // },
-    {
-      label: "Hospital",
-      href: "/hospital"
-    },
+    // {
+    //   label: "Hospital",
+    //   href: "/hospital"
+    // },
     {
       label: "Login",
       href: "/studio"
