@@ -1,9 +1,10 @@
 import PostList from "@/components/postlist";
 import Pagination from "@/components/blog/pagination";
 
-import { getPaginatedPosts } from "@/lib/sanity/client";
+import { getPaginatedBitacoras } from "@/lib/sanity/client";
+import PdfCard from "@/components/pdfCard";
 
-export default async function Post({ searchParams }) {
+export default async function Trabajos({ searchParams }) {
   // Fetch the current page from the query parameters, defaulting to 1 if it doesn't exist
   const page = searchParams.page;
   const pageIndex = parseInt(page, 10) || 1;
@@ -17,24 +18,25 @@ export default async function Post({ searchParams }) {
     limit: pageIndex * POSTS_PER_PAGE
   };
 
-  const posts = await getPaginatedPosts(params);
+  const bitacoras = await getPaginatedBitacoras(params);
 
   // Check if the current page is the first or the last
   const isFirstPage = pageIndex < 2;
-  const isLastPage = posts.length < POSTS_PER_PAGE;
+  const isLastPage = bitacoras.length < POSTS_PER_PAGE;
 
+  // console.log(bitacoras);
   return (
     <>
-      {posts && posts?.length === 0 && (
+      {bitacoras && bitacoras?.length === 0 && (
         <div className="flex h-40 items-center justify-center">
           <span className="text-lg text-gray-500">
-            End of the result!
+            Fin de los resultados
           </span>
         </div>
       )}
       <div className="mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3">
-        {posts.map(post => (
-          <PostList key={post._id} post={post} aspect="square" />
+        {bitacoras.map(pdf => (
+          <PdfCard key={pdf._id} pdf={pdf} />
         ))}
       </div>
 
@@ -42,6 +44,7 @@ export default async function Post({ searchParams }) {
         pageIndex={pageIndex}
         isFirstPage={isFirstPage}
         isLastPage={isLastPage}
+        currentPage={"trabajos"}
       />
     </>
   );

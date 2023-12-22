@@ -45,8 +45,8 @@ export default function Navbar(props) {
     //   href: "/archive"
     // },
     {
-      label: "Bitácora",
-      href: "/bitacora"
+      label: "Trabajos",
+      href: "/trabajos"
     },
 
     {

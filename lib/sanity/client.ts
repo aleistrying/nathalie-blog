@@ -203,14 +203,27 @@ export async function getPaginatedTalleres({ limit, pageIndex = 0 }) {
   return [];
 }
 export async function getPaginatedResumenes({
-  limit,
-  pageIndex = 0
-}) {
+  // limit,
+  // pageIndex = 0
+  week = 1
+}): Promise<
+  {
+    title: string;
+    file: {
+      asset: {
+        _id: string;
+        url: string;
+      };
+    };
+    week: number;
+    fileUrl: string;
+    _id: string;
+  }[]
+> {
   if (client) {
     return (
       (await client.fetch(resumenesquery, {
-        pageIndex: pageIndex,
-        limit: limit
+        week: +week
       })) || []
     );
   }

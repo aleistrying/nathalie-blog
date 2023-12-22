@@ -1,11 +1,8 @@
 import PostList from "@/components/postlist";
 import Pagination from "@/components/blog/pagination";
 
-import {
-  getPaginatedBitacoras,
-  getPaginatedResumenes
-} from "@/lib/sanity/client";
-import BitacoraCard from "@/components/bitacoraCard";
+import { getPaginatedTalleres } from "@/lib/sanity/client";
+import PdfCard from "@/components/pdfCard";
 
 export default async function Talleres({ searchParams }) {
   // Fetch the current page from the query parameters, defaulting to 1 if it doesn't exist
@@ -21,7 +18,7 @@ export default async function Talleres({ searchParams }) {
     limit: pageIndex * POSTS_PER_PAGE
   };
 
-  const bitacoras = await getPaginatedResumenes(params);
+  const bitacoras = await getPaginatedTalleres(params);
 
   // Check if the current page is the first or the last
   const isFirstPage = pageIndex < 2;
@@ -39,7 +36,7 @@ export default async function Talleres({ searchParams }) {
       )}
       <div className="mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3">
         {bitacoras.map(pdf => (
-          <BitacoraCard key={pdf._id} pdf={pdf} />
+          <PdfCard key={pdf._id} pdf={pdf} />
         ))}
       </div>
 
@@ -47,6 +44,7 @@ export default async function Talleres({ searchParams }) {
         pageIndex={pageIndex}
         isFirstPage={isFirstPage}
         isLastPage={isLastPage}
+        currentPage={"talleres"}
       />
     </>
   );

@@ -14,6 +14,14 @@ export default function PostList({
   preloadImage,
   fontSize,
   fontWeight
+}: {
+  post?: any;
+  aspect?: "landscape" | "square" | "custom";
+  minimal?: boolean;
+  pathPrefix?: string;
+  preloadImage?: boolean;
+  fontSize?: "large" | "normal";
+  fontWeight?: "normal" | "bold";
 }) {
   const imageProps = post?.mainImage
     ? urlForImage(post.mainImage)

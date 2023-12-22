@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-export default function BitacoraCard({ pdf }) {
+export default function PdfCard({ pdf }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const handleClick = () => {
     setIsExpanded(!isExpanded);
@@ -10,8 +10,9 @@ export default function BitacoraCard({ pdf }) {
     <div
       className={`card m-2
             flex transform cursor-pointer
-            flex-col overflow-hidden rounded-lg bg-white shadow-lg transition
-            duration-500 ease-in-out
+            flex-col overflow-hidden rounded-lg bg-gray-100 bg-opacity-30 
+            p-5 shadow-lg backdrop-blur-lg   backdrop-filter  transition duration-500 ease-in-out 
+            dark:text-black
 ${
   isExpanded
     ? "absolute left-0 top-0 z-30 h-screen w-full"
@@ -25,7 +26,11 @@ ${
         {pdf.title}
       </h2>
       <iframe
-        className="relative cursor-pointer"
+        className={`relative cursor-pointer rounded-sm ${
+          !isExpanded
+            ? "overflow-hidden overflow-x-hidden overflow-y-hidden"
+            : ""
+        }`}
         onClick={handleClick}
         key={pdf._id}
         src={pdf.fileUrl}

@@ -8,11 +8,17 @@ import {
   ChevronRightIcon
 } from "@heroicons/react/24/outline";
 
-export default function Pagination({
-  pageIndex,
+export default function WeekPagination({
+  // pageIndex,
   isFirstPage,
   isLastPage,
-  currentPage
+  currentPage,
+  currentWeek
+}: {
+  isFirstPage: boolean;
+  isLastPage: boolean;
+  currentPage: string;
+  currentWeek: number;
 }) {
   const router = useRouter();
 
@@ -22,14 +28,14 @@ export default function Pagination({
   // Define functions for navigating to the next and previous pages
   // These functions update the page query parameter in the URL
   const handleNextPage = () => {
-    params.set("page", (pageIndex + 1).toString());
+    params.set("week", (currentWeek + 1).toString());
     const query = params.toString();
 
     router.push(`/${currentPage}?${query}`);
   };
 
   const handlePrevPage = () => {
-    params.set("page", (pageIndex - 1).toString());
+    params.set("week", (currentWeek - 1).toString());
     const query = params.toString();
 
     router.push(`/${currentPage}?${query}`);
