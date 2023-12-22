@@ -19,12 +19,21 @@ export default function Navbar(props) {
     {
       label: "Sobre mí",
       href: "/about"
-    }
+    },
     // {
     //   label: "Rotación",
     //   href: "/rotation"
     // },
     // Trabajos
+    {
+      label: "Resumenes",
+      href: "/resumenes"
+    },
+    // Talleres
+    {
+      label: "Talleres",
+      href: "/talleres"
+    }
     // Resúmenes
     // Certificados / Talleres
     // Multimedia

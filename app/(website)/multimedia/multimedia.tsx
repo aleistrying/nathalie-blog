@@ -35,14 +35,14 @@ export default async function Multimedia({ searchParams }) {
           </span>
         </div>
       )}
-      <div className="mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3">
+      <div className="mt-10 grid gap-10 md:grid-cols-1 lg:gap-10 xl:grid-cols-3">
         {multimedia?.map((multimedia, i) => {
           if (multimedia.image) {
             const image = urlForImage(multimedia.image);
             if (!image) return null;
             return (
               <div
-                className="relative z-0 h-96 max-w-sm overflow-hidden rounded shadow-lg duration-1000 ease-in-out"
+                className="relative z-0 h-96 max-w-md overflow-hidden rounded shadow-lg duration-1000 ease-in-out"
                 key={i}>
                 <p className="absolute bottom-0 z-10 flex w-full items-center justify-center bg-white p-2 px-10 text-black opacity-50">
                   {multimedia.excerpt}
@@ -74,7 +74,7 @@ export default async function Multimedia({ searchParams }) {
 
             return (
               <div
-                className="relative z-0 h-96 max-w-sm overflow-hidden rounded shadow-lg duration-1000 ease-in-out"
+                className="relative z-0 h-96 max-w-md overflow-hidden rounded shadow-lg duration-1000 ease-in-out"
                 key={i}>
                 {multimedia.NSFW ? (
                   <p className="absolute bottom-0 z-10 flex w-full items-center justify-center bg-white p-2 px-10 text-black opacity-50">

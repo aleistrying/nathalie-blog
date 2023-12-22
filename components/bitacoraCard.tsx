@@ -15,7 +15,7 @@ export default function BitacoraCard({ pdf }) {
 ${
   isExpanded
     ? "absolute left-0 top-0 z-30 h-screen w-full"
-    : "h-96  hover:-translate-y-1 hover:scale-110"
+    : "h-64  hover:-translate-y-1 hover:scale-110"
 }	
           `}
       onClick={handleClick}

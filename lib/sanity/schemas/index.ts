@@ -6,6 +6,8 @@ import settings from "./settings";
 import professor from "./professor";
 import multimedia from "./multimedia";
 import bitacoras from "./bitacoras";
+import talleres from "./talleres";
+import resumenes from "./resumenes";
 
 export const schemaTypes = [
   settings,
@@ -14,6 +16,8 @@ export const schemaTypes = [
   // professor,
   multimedia,
   bitacoras,
+  resumenes,
+  talleres,
   category,
   blockContent
 ];

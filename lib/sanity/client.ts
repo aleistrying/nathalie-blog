@@ -3,6 +3,7 @@ import {
   homeQuery,
   postquery,
   bitacoraquery,
+  resumenes as resumenesquery,
   limitquery,
   paginatedquery,
   configQuery,
@@ -17,7 +18,8 @@ import {
   getAll,
   searchquery,
   allprofessorsquery,
-  paginatedmultimediaquery
+  paginatedmultimediaquery,
+  talleresquery
 } from "./groq";
 import { createClient } from "next-sanity";
 
@@ -189,6 +191,31 @@ export async function getTopCategories() {
   return [];
 }
 
+export async function getPaginatedTalleres({ limit, pageIndex = 0 }) {
+  if (client) {
+    return (
+      (await client.fetch(talleresquery, {
+        pageIndex: pageIndex,
+        limit: limit
+      })) || []
+    );
+  }
+  return [];
+}
+export async function getPaginatedResumenes({
+  limit,
+  pageIndex = 0
+}) {
+  if (client) {
+    return (
+      (await client.fetch(resumenesquery, {
+        pageIndex: pageIndex,
+        limit: limit
+      })) || []
+    );
+  }
+  return [];
+}
 export async function getPaginatedBitacoras({
   limit,
   pageIndex = 0
