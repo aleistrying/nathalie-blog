@@ -60,19 +60,19 @@ export default function RootLayout({
       }>
       {/* //add special image background  */}
 
-      <body className="relative text-gray-800 antialiased dark:bg-black dark:text-gray-400">
-        <div className="pointer-events-none fixed left-0 top-0 z-0 h-full w-full">
+      <body className="relative bg-gradient-to-l from-pink-50 to-purple-100 text-gray-800 antialiased dark:bg-black dark:text-gray-400">
+        {/* <div className="pointer-events-none fixed left-0 top-0 z-0 h-full w-full">
           <Image
-            src="/img/special-bg.jpg"
+            src="/img/background-v4.jpeg"
             alt="special-bg"
             className={
-              "special-bg h-full w-full object-cover opacity-20"
+              "special-bg h-full w-full object-cover opacity-100 bg-pink-200"
             }
             style={sauce}
             width={1920}
             height={1080}
           />
-        </div>
+        </div> */}
         <Providers>{children}</Providers>
       </body>
     </html>

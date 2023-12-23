@@ -51,12 +51,11 @@ export default async function Multimedia({ searchParams }) {
                   <CategoryLabel categories={multimedia.categories} />
                 </div>
 
-                {/* <div className="absolute top-0 w-full h-full bg-black opacity-30">{multimedia.excerpt}</div> */}
                 <Image
                   key={i}
                   {...image}
                   alt={multimedia.title}
-                  className={`h-full w-full object-cover ${
+                  className={`w-full object-contain ${
                     multimedia?.NSFW
                       ? "blur-lg filter duration-1000 ease-in-out hover:blur-none"
                       : ""
@@ -74,7 +73,7 @@ export default async function Multimedia({ searchParams }) {
 
             return (
               <div
-                className="relative z-0 h-96 max-w-md overflow-hidden rounded shadow-lg duration-1000 ease-in-out"
+                className="relative z-0 h-96 max-w-md overflow-hidden rounded object-contain shadow-lg duration-1000 ease-in-out"
                 key={i}>
                 {multimedia.NSFW ? (
                   <p className="absolute bottom-0 z-10 flex w-full items-center justify-center bg-white p-2 px-10 text-black opacity-50">
@@ -94,13 +93,13 @@ export default async function Multimedia({ searchParams }) {
                       alt={multimedia.title}
                       width={480}
                       height={360}
-                      className={`h-full w-full object-cover filter duration-1000 ease-in-out hover:blur-none ${
+                      className={`w-full object-contain filter duration-1000 ease-in-out hover:blur-none ${
                         multimedia?.NSFW ? "blur-lg" : ""
                       }`}
                     />
                   ) : (
                     <iframe
-                      className={`h-full w-full object-cover filter duration-1000 ease-in-out hover:blur-none ${
+                      className={`h-full w-full object-contain filter duration-1000 ease-in-out hover:blur-none ${
                         multimedia?.NSFW ? "blur-lg" : ""
                       }`}
                       src={
