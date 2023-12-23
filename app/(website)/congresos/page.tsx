@@ -10,7 +10,7 @@ export const runtime = "edge";
 export default async function CongresosPage({ searchParams }) {
   return (
     <>
-      <Container className="relative">
+      <Container className="relative" large>
         <h1 className="text-center text-3xl font-semibold tracking-tight dark:text-white lg:text-4xl lg:leading-snug">
           Congresos
         </h1>

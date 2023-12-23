@@ -106,8 +106,8 @@ export default function Navbar(props) {
                         {...urlForImage(props.logo)}
                         alt={props?.logo?.alt || "Logo"}
                         priority={true}
-                        className="rounded-full"
-                        sizes="(max-width: 640px) 100vw, 200px"
+                        className="h-28 rounded-full object-cover"
+                        // sizes="(max-width: 640px) 100vw, 150px"
                       />
                     ) : (
                       <span className="block text-center">
@@ -121,8 +121,8 @@ export default function Navbar(props) {
                         {...urlForImage(props.logoalt)}
                         alt="Logo"
                         priority={true}
-                        className="rounded-full"
-                        sizes="(max-width: 640px) 100vw, 200px"
+                        className="h-28 rounded-full object-cover"
+                        // sizes="(max-width: 640px) 100vw, 150px"
                       />
                     ) : (
                       <span className="block text-center">

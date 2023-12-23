@@ -38,34 +38,42 @@ export default async function Congresos({ searchParams }) {
           </span>
         </div>
       )}
-      <div className="mt-10 grid md:grid-cols-1 lg:gap-10 xl:grid-cols-3">
+      <div className="mt-10 grid grid-cols-1 gap-10 xl:grid-cols-3">
         {multimedia?.map((multimedia, i) => {
           if (multimedia.image) {
             const image = urlForImage(multimedia.image);
             if (!image) return null;
             return (
               <div
-                className={`relative z-0 h-96 w-fit max-w-md overflow-hidden
- rounded-2xl bg-black bg-opacity-20
+                className={`relative z-0 h-fit w-fit max-w-lg self-center
+ justify-self-center overflow-hidden rounded-2xl bg-black bg-opacity-20
  shadow-lg backdrop-blur-lg  backdrop-filter transition duration-1000 ease-in-out dark:bg-gray-900 dark:bg-opacity-10 dark:text-gray-50
  `}
                 key={i}>
-                <div className="flex justify-center">
-                  <CategoryLabel categories={multimedia.categories} />
-                </div>
+                {(multimedia?.categories?.length ?? 0) > 0 ? (
+                  <div className="flex justify-center">
+                    <CategoryLabel
+                      categories={multimedia.categories}
+                    />
+                  </div>
+                ) : null}
 
                 {/* <div className="absolute top-0 w-full h-full bg-black opacity-30">{multimedia.excerpt}</div> */}
                 <Image
                   key={i}
                   {...image}
                   alt={multimedia.title}
-                  className={`h-80 w-full object-contain`}
+                  className={`${
+                    multimedia?.excerpt?.trim() ? "h-5/6" : "h-full"
+                  } w-full object-contain`}
                 />
-                <p
-                  className={`bg-tranparent flex h-1/6  items-center justify-center  p-2
+                {multimedia?.excerpt?.trim() ? (
+                  <p
+                    className={`bg-tranparent flex h-1/6  items-center justify-center  p-2
                  text-lg text-black`}>
-                  {multimedia.excerpt}
-                </p>
+                    {multimedia.excerpt}
+                  </p>
+                ) : null}
               </div>
             );
           } else if (multimedia.videoUrl) {
@@ -80,9 +88,11 @@ export default async function Congresos({ searchParams }) {
               <div
                 className="relative z-0 h-96 max-w-md overflow-hidden rounded shadow-lg duration-1000 ease-in-out"
                 key={i}>
-                <p className="absolute bottom-0 z-10 flex w-full items-center justify-center bg-white p-2 px-10 text-black opacity-50">
-                  {multimedia.excerpt}
-                </p>
+                {multimedia?.excerpt ? (
+                  <p className="absolute bottom-0 z-10 flex w-full items-center justify-center bg-white p-2 px-10 text-black opacity-50">
+                    {multimedia.excerpt}
+                  </p>
+                ) : null}
                 <div className="flex justify-center">
                   <CategoryLabel categories={multimedia.categories} />
                 </div>

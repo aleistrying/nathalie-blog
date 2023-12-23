@@ -60,7 +60,7 @@ export default function RootLayout({
       }>
       {/* //add special image background  */}
 
-      <body className="relative bg-gradient-to-l from-pink-50 to-purple-100 text-gray-800 antialiased dark:bg-black dark:text-gray-400">
+      <body className="relative bg-gradient-to-l from-purple-200 to-pink-50 text-gray-800 antialiased dark:bg-black dark:text-gray-400">
         {/* <div className="pointer-events-none fixed left-0 top-0 z-0 h-full w-full">
           <Image
             src="/img/background-v4.jpeg"

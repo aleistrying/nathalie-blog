@@ -56,9 +56,10 @@ export default async function Multimedia({ searchParams }) {
                   {...image}
                   alt={multimedia.title}
                   className={`w-full object-contain ${
-                    multimedia?.NSFW
-                      ? "blur-lg filter duration-1000 ease-in-out hover:blur-none"
-                      : ""
+                    ""
+                    // multimedia?.NSFW
+                    //   ? "blur-lg filter duration-1000 ease-in-out hover:blur-none"
+                    //   : ""
                   }`}
                 />
               </div>
@@ -75,11 +76,13 @@ export default async function Multimedia({ searchParams }) {
               <div
                 className="relative z-0 h-96 max-w-md overflow-hidden rounded object-contain shadow-lg duration-1000 ease-in-out"
                 key={i}>
-                {multimedia.NSFW ? (
+                {/* {multimedia.NSFW ? ( */}
+                {multimedia?.excerpt ? (
                   <p className="absolute bottom-0 z-10 flex w-full items-center justify-center bg-white p-2 px-10 text-black opacity-50">
                     {multimedia.excerpt}
                   </p>
                 ) : null}
+                {/* // ) : null} */}
                 <div className="flex justify-center">
                   <CategoryLabel categories={multimedia.categories} />
                 </div>
@@ -87,7 +90,7 @@ export default async function Multimedia({ searchParams }) {
                   href={multimedia.videoUrl}
                   target="_blank"
                   rel="noopener">
-                  {multimedia?.NSFW ? (
+                  {/* {multimedia?.NSFW ? (
                     <Image
                       src={videoThumbnail}
                       alt={multimedia.title}
@@ -97,27 +100,28 @@ export default async function Multimedia({ searchParams }) {
                         multimedia?.NSFW ? "blur-lg" : ""
                       }`}
                     />
-                  ) : (
-                    <iframe
-                      className={`h-full w-full object-contain filter duration-1000 ease-in-out hover:blur-none ${
-                        multimedia?.NSFW ? "blur-lg" : ""
-                      }`}
-                      src={
-                        multimedia.videoUrl?.includes("shorts")
-                          ? multimedia?.videoUrl.replace(
-                              "shorts",
-                              "embed"
-                            )
-                          : multimedia?.videoUrl.replace(
-                              "watch?v=",
-                              "embed/"
-                            )
-                      }
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      title={multimedia.title}
-                      allowFullScreen
-                    />
-                  )}
+                  ) : ( */}
+                  <iframe
+                    className={`h-full w-full object-contain filter duration-1000 ease-in-out hover:blur-none ${
+                      // multimedia?.NSFW ? "blur-lg" : ""
+                      ""
+                    }`}
+                    src={
+                      multimedia.videoUrl?.includes("shorts")
+                        ? multimedia?.videoUrl.replace(
+                            "shorts",
+                            "embed"
+                          )
+                        : multimedia?.videoUrl.replace(
+                            "watch?v=",
+                            "embed/"
+                          )
+                    }
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    title={multimedia.title}
+                    allowFullScreen
+                  />
+                  {/* )} */}
                 </a>
               </div>
             );

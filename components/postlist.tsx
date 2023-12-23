@@ -62,13 +62,14 @@ export default function PostList({
                 alt={post?.mainImage?.alt || "Thumbnail"}
                 priority={preloadImage ? true : false}
                 className={cx(
-                  "object-cover transition-all ",
-                  post?.mainImage?.NSFW
-                    ? "blur-lg filter duration-1000 ease-in-out hover:blur-none"
-                    : ""
+                  "object-cover transition-all "
+                  // post?.mainImage?.NSFW
+                  //   ? "blur-lg filter duration-1000 ease-in-out hover:blur-none"
+                  //   : ""
                 )}
                 fill
-                sizes="(max-width: 768px) 30vw, 33vw"
+                // sizes="(max-width: 768px) 30vw, 33vw"
+                sizes="100%"
               />
             ) : (
               <span className="absolute left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 text-gray-200">
