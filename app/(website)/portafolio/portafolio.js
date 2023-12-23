@@ -42,6 +42,7 @@ export default async function Portafolio({ searchParams }) {
         pageIndex={pageIndex}
         isFirstPage={isFirstPage}
         isLastPage={isLastPage}
+        currentPage={"portafolio"}
       />
     </>
   );

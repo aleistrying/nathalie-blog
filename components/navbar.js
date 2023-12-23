@@ -53,10 +53,10 @@ export default function Navbar(props) {
       label: "Fotos y Videos",
       href: "/multimedia"
     },
-    // {
-    //   label: "Mis profesores",
-    //   href: "/profesores"
-    // },
+    {
+      label: "Congresos",
+      href: "/congresos"
+    },
     // {
     //   label: "Hospital",
     //   href: "/hospital"

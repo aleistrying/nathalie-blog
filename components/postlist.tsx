@@ -24,10 +24,10 @@ export default function PostList({
   fontWeight?: "normal" | "bold";
 }) {
   const imageProps = post?.mainImage
-    ? urlForImage(post.mainImage)
+    ? urlForImage(post?.mainImage)
     : null;
   const AuthorimageProps = post?.author?.image
-    ? urlForImage(post.author.image)
+    ? urlForImage(post?.author?.image)
     : null;
   return (
     <>
@@ -50,7 +50,7 @@ export default function PostList({
                 : "aspect-square"
             )}
             href={`/post/${pathPrefix ? `${pathPrefix}/` : ""}${
-              post.slug.current
+              post?.slug?.current ?? ""
             }`}>
             {imageProps ? (
               <Image
@@ -59,11 +59,11 @@ export default function PostList({
                   placeholder: "blur",
                   blurDataURL: post.mainImage.blurDataURL
                 })}
-                alt={post.mainImage.alt || "Thumbnail"}
+                alt={post?.mainImage?.alt || "Thumbnail"}
                 priority={preloadImage ? true : false}
                 className={cx(
                   "object-cover transition-all ",
-                  post.mainImage?.NSFW
+                  post?.mainImage?.NSFW
                     ? "blur-lg filter duration-1000 ease-in-out hover:blur-none"
                     : ""
                 )}
@@ -98,7 +98,7 @@ export default function PostList({
               )}>
               <Link
                 href={`/post/${pathPrefix ? `${pathPrefix}/` : ""}${
-                  post.slug.current
+                  post?.slug?.current ?? ""
                 }`}>
                 <span
                   className="bg-gradient-to-r from-green-200 to-green-100 bg-[length:0px_10px] bg-left-bottom
@@ -119,7 +119,7 @@ export default function PostList({
                   <Link
                     href={`/post/${
                       pathPrefix ? `${pathPrefix}/` : ""
-                    }${post.slug.current}`}>
+                    }${post?.slug?.current ?? ""}`}>
                     {post.excerpt}
                   </Link>
                 </p>
@@ -127,7 +127,8 @@ export default function PostList({
             </div>
 
             <div className="mt-3 flex items-center space-x-3 text-gray-500 dark:text-gray-400">
-              <Link href={`/author/${post?.author?.slug?.current}`}>
+              <Link
+                href={`/author/${post?.author?.slug?.current ?? ""}`}>
                 <div className="flex items-center gap-3">
                   <div className="relative h-5 w-5 flex-shrink-0">
                     {post?.author?.image && (

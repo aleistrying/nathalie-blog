@@ -19,7 +19,8 @@ import {
   searchquery,
   allprofessorsquery,
   paginatedmultimediaquery,
-  talleresquery
+  talleresquery,
+  paginatedcongresosquery
 } from "./groq";
 import { createClient } from "next-sanity";
 
@@ -272,6 +273,31 @@ export async function getPaginatedMultimedia({
   if (client) {
     return (
       (await client.fetch(paginatedmultimediaquery, {
+        pageIndex: pageIndex,
+        limit: limit
+      })) || []
+    );
+  }
+  return [];
+}
+
+export async function getPaginatedCongresos({
+  limit,
+  pageIndex = 0
+}): Promise<
+  {
+    image: any;
+    // NSFW: boolean;
+    title: string;
+    excerpt: string;
+    videoUrl: string;
+    categories: any;
+    createdAt: string;
+  }[]
+> {
+  if (client) {
+    return (
+      (await client.fetch(paginatedcongresosquery, {
         pageIndex: pageIndex,
         limit: limit
       })) || []

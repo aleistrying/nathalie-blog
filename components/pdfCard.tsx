@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useState } from "react";
 export default function PdfCard({ pdf }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -8,10 +9,11 @@ export default function PdfCard({ pdf }) {
 
   return (
     <div
-      className={`card m-2
+      className={`card
             flex transform cursor-pointer
-            flex-col overflow-hidden rounded-lg bg-gray-100 bg-opacity-30 
-            p-5 shadow-lg backdrop-blur-lg   backdrop-filter  transition duration-500 ease-in-out 
+            flex-col overflow-hidden rounded-lg bg-gray-300 bg-opacity-30 
+            p-5
+            shadow-lg backdrop-blur-lg backdrop-filter transition duration-500 ease-in-out dark:bg-gray-900 dark:bg-opacity-40
             dark:text-black
 ${
   isExpanded
@@ -22,21 +24,38 @@ ${
       onClick={handleClick}
       key={pdf._id}>
       <h2
-        className={`m-2 flex flex-row items-center justify-center text-2xl font-bold text-gray-800 `}>
+        className={`mb-2 flex flex-row items-center justify-center text-2xl font-bold text-gray-800 dark:text-gray-50 `}>
         {pdf.title}
       </h2>
-      <iframe
-        className={`relative cursor-pointer rounded-sm ${
-          !isExpanded
-            ? "overflow-hidden overflow-x-hidden overflow-y-hidden"
-            : ""
-        }`}
-        onClick={handleClick}
-        key={pdf._id}
-        src={pdf.fileUrl}
-        width="100%"
-        height="100%"
-        title={pdf.title}></iframe>
+      {pdf?.file?.asset?._ref?.includes("pdf") ? (
+        <iframe
+          className={`relative cursor-pointer rounded-sm ${
+            !isExpanded
+              ? "overflow-hidden overflow-x-hidden overflow-y-hidden"
+              : ""
+          }`}
+          onClick={handleClick}
+          key={pdf._id}
+          src={pdf.fileUrl}
+          width="100%"
+          height="100%"
+          title={pdf.title}></iframe>
+      ) : (
+        <Image
+          className={`relative h-full w-96 cursor-pointer rounded-sm object-contain ${
+            !isExpanded
+              ? "overflow-hidden overflow-x-hidden overflow-y-hidden"
+              : ""
+          }`}
+          alt={pdf.title}
+          onClick={handleClick}
+          key={pdf._id}
+          src="/img/document-link-icon.png"
+          title={pdf.title}
+          width={1080}
+          height={1080}
+        />
+      )}
       {/* add closing controls */}
       {isExpanded && (
         <div className="absolute right-0 top-0 m-2">

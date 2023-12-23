@@ -4,7 +4,7 @@ import { cx } from "@/utils/all";
 import { Playfair_Display, Inter, Lora } from "next/font/google";
 import localFont from "next/font/local";
 import Image from "next/image";
-import themseStuff from "@/components/themeStuff";
+// import themseStuff from "@/components/themeStuff";
 
 // const inter = Inter({
 //   subsets: ["latin"],
@@ -63,7 +63,7 @@ export default function RootLayout({
       <body className="relative text-gray-800 antialiased dark:bg-black dark:text-gray-400">
         <div className="pointer-events-none fixed left-0 top-0 z-0 h-full w-full">
           <Image
-            src="/images/special-bg.jpg"
+            src="/img/special-bg.jpg"
             alt="special-bg"
             className={
               "special-bg h-full w-full object-cover opacity-20"

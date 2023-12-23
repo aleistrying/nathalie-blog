@@ -36,9 +36,14 @@ export default async function Resumenes({ searchParams }) {
     <>
       {/* make client component for 9 buttons that are selectable */}
       <div className="w-full">
-        <h1 className="m-0 w-full p-0  text-center text-2xl font-bold">
-          Semana {week ?? 1}
-        </h1>
+        <div className="my-3 flex w-full flex-row justify-center  ">
+          <h1
+            className="m-0 overflow-hidden  rounded-lg bg-gray-300 bg-opacity-40
+        p-5 text-center text-3xl font-bold
+            shadow-lg backdrop-blur-lg backdrop-filter transition duration-500 ease-in-out dark:text-gray-50 ">
+            Semana {week ?? 1}
+          </h1>
+        </div>
         <div className="flex flex-row flex-wrap items-center justify-center">
           {Array(MAX_WEEKS)
             .fill(0)
