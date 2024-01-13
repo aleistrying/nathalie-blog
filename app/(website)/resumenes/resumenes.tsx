@@ -17,7 +17,7 @@ export default async function Resumenes({ searchParams }) {
   const week: number = +searchParams?.week || 1;
 
   // Set the number of posts to be displayed per page
-  const MAX_WEEKS = 6;
+  const MAX_WEEKS = 8;
 
   // Define the parameters for fetching posts based on the current page
   const params = {
