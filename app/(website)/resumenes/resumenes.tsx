@@ -7,7 +7,6 @@ import {
 } from "@/lib/sanity/client";
 import PdfCard from "@/components/pdfCard";
 import WeekPagination from "../../../components/blog/weekPagination";
-import { useRouter } from "next/router";
 import MultiButtonGroup from "@/components/multiButtonGroup";
 
 export default async function Resumenes({ searchParams }) {

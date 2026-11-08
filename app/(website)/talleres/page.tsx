@@ -7,7 +7,8 @@ export const dynamic = "force-dynamic";
 
 export const runtime = "edge";
 
-export default async function ResumenesPage({ searchParams }) {
+export default async function ResumenesPage({ searchParams: pendingSearchParams }) {
+  const searchParams = await pendingSearchParams;
   return (
     <>
       <Container className="relative flex w-full flex-row flex-wrap items-center justify-center gap-10">

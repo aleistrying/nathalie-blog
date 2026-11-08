@@ -7,7 +7,8 @@ export const dynamic = "force-dynamic";
 
 export const runtime = "edge";
 
-export default async function CongresosPage({ searchParams }) {
+export default async function CongresosPage({ searchParams: pendingSearchParams }) {
+  const searchParams = await pendingSearchParams;
   return (
     <>
       <Container className="relative" large>
