@@ -40,16 +40,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const sauce = {
-    transform: `scale(${Math.floor(Math.random() * 2) + 1}) 
-    rotate(${Math.floor(Math.random() * 720)}deg`,
-    backgroundPosition: `${Math.floor(Math.random() * 10) + 5}% ${
-      Math.floor(Math.random() * 10) + 5
-    }%`,
-    backgroundSize: `${Math.floor(Math.random() * 100) + 100}% ${
-      Math.floor(Math.random() * 100) + 100
-    }%`
-  };
   return (
     <html
       lang="en"

@@ -17,8 +17,7 @@ export default function MultiButtonGroup({
         isEnd ? "rounded-r-md" : ""
       } transition-all`}
       onClick={() => {
-        params.week = week;
-        const query = new URLSearchParams(params).toString();
+        const query = new URLSearchParams({ ...params, week }).toString();
         router.push(`/resumenes?${query}`);
       }}>
       <div
