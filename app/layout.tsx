@@ -1,4 +1,5 @@
 import "@/styles/tailwind.css";
+import "@/styles/prism.css";
 import { Providers } from "./providers";
 import { cx } from "@/utils/all";
 import { Playfair_Display, Inter, Lora } from "next/font/google";

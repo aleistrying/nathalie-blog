@@ -8,11 +8,10 @@
  * https://github.com/sanity-io/next-sanity
  */
 
-import { NextStudio } from "next-sanity/studio";
-import config from "sanity.config";
+import Studio from "./Studio";
 
 export { metadata, viewport } from "next-sanity/studio";
 
 export default function StudioPage() {
-  return <NextStudio config={config} />;
+  return <Studio />;
 }
